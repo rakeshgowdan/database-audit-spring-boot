@@ -6,8 +6,11 @@ The process of tracking and logging events on the Database is called Database Au
 Database Audit is very important for compliance purposes and also to analyze production issues. Database Audit is a wide area and it is usually done on the Database by the Database Administrator (DBA) who tracks the following activities
 
 Administrative Activity: Eg: creation and deletion of new user accounts
+
 Data Access and Modification: These are events where users view, create, or modify data
+
 Login Failures and User Denials: Eg: User unable to login due to invalid credentials
+
 System-wide Changes: To capture events that occur within a network
 
 ## Different ways of Auditing a Database
@@ -31,8 +34,11 @@ Out of the above 6 approaches, we are only interested in the Hand-Coded audit tr
 The following four fields are used for audit in any database table
 
 CreatedBy- This field is used to record the name of the user who has created the record. It can be a human or a system.
+
 CreatedDate- This field is used to store the date on which the record was created.
+
 LastModifiedBy- This field is used to record the name of the user that has updated the record. It can be a human or a system.
+
 LastModifiedDate — This field is used to store the date on which the record was updated.
 
 ## What is Hibernate Envers?
@@ -44,17 +50,24 @@ Auditing and versioning are key components for building production-level Spring 
 
 ## Steps 
 Create Generic Auditable Class with Spring Data Annotations @CreatedBy, @CreatedDate, @LastModifiedBy, and @LastModifiedDate
+
 Create a JPA Entity which extends Auditable Class - User.java
+
 Auditing Author Using AuditorAware and Spring Security
+
 Enable JPA Auditing by Using @EnableJpaAuditing 
 
 
 ## Let's understand important JPA Auditing annotations:
 
 @CreatedDate - Declares a field as the one representing the date the entity containing the field was created.
+
 @LastModifiedDate - Declares a field as the one representing the date the entity containing the field was recently modified.
+
 @CreatedBy- Declares a field as the one representing the principal that created the entity containing the field.
+
 @LastModifiedBy - Declares a field as the one representing the principal that recently modified the entity containing the field.
+
 The Spring Data JPA approach abstracts working with JPA callbacks and provides us these fancy annotations to automatically save and update auditing entities.
 
 ## Using the AuditingEntityListener Class With @EntityListeners
